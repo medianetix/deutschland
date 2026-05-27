@@ -13,6 +13,15 @@ A python package that gives you easy access to the most valuable datasets of Ger
 pip install deutschland
 ```
 
+### Supported Python Versions
+```
+3.9 - 3.12
+```
+Tested on Linux, MacOS and Windows 
+
+[![Run Python 🐍 tests](https://github.com/bundesAPI/deutschland/actions/workflows/runtests.yml/badge.svg?branch=main)](https://github.com/bundesAPI/deutschland/actions/workflows/runtests.yml)
+
+
 ### Development
 For development poetry version `>=1.2.0` is required.
 
@@ -31,9 +40,9 @@ print(data.keys())
 print(data["Adresse"][0])
 # {'geometry': {'type': 'Point', 'coordinates': (13.422642946243286, 52.51500157651358)}, 'properties': {'postleitzahl': '10179', 'ort': 'Berlin', 'ortsteil': 'Mitte', 'strasse': 'Holzmarktstraße', 'hausnummer': '55'}, 'id': 0, 'type': 'Feature'}
 ```
-For the detailed documentation of this API see [here](https://adv-smart.de/docs/dokumentation/web_vektor_datenmodell.html)
+For the detailed documentation of this API see [here](https://dev.adv-smart.de/docs/dokumentation/web_vektor_datenmodell.html)
 
-The data is provided by the [AdV SmartMapping](https://adv-smart.de/index_en.html). The team consists of participants from the German state surveying offices, the Federal Agency for Cartography and Geodesy (BKG), the German Federal Armed Forces (Bundeswehr ZGeoBW) and third parties from research and education.
+The data is provided by the [AdV SmartMapping](https://dev.adv-smart.de/). The team consists of participants from the German state surveying offices, the Federal Agency for Cartography and Geodesy (BKG), the German Federal Armed Forces (Bundeswehr ZGeoBW) and third parties from research and education.
 
 
 ## Company Data
@@ -50,19 +59,11 @@ data = ba.get_reports("Deutsche Bahn AG")
 print(data.keys())
 # dict_keys(['Jahresabschluss zum Geschäftsjahr vom 01.01.2020 bis zum 31.12.2020', 'Konzernabschluss zum Geschäftsjahr vom 01.01.2020 bis zum 31.12.2020\nErgänzung der Veröffentlichung vom 04.06.2021',
 ```
-*Big thanks to Nico Duldhardt and Friedrich Schöne, who [supported this implementation with their machine learning model](https://av.tib.eu/media/52366).*
+*Big thanks to [Nico Duldhardt](https://github.com/2start) and [Friedrich Eichenroth](https://github.com/eichenroth), who [supported this implementation with their machine learning model](https://av.tib.eu/media/52366).*
 
 ### Handelsregister
-Fetch general company information about any company in the Handelsregister.
 
-```python
-from deutschland.handelsregister import Handelsregister
-hr = Handelsregister()
-# search by keywords, see documentation for all available params
-hr.search(keywords="Deutsche Bahn Aktiengesellschaft")
-print(hr)
-```
-
+The code for the Handelsregister moved to this [repo](https://github.com/bundesAPI/handelsregister).
 
 ## Consumer Protection Data
 
@@ -120,18 +121,9 @@ except autobahn.ApiException as e:
 ```
 For the detailed documentation of this API see [here](https://github.com/bundesAPI/deutschland/blob/main/docs/autobahn/README.md)
 
+### Presseportal
 
-## Presseportal
-
-For further information see: https://github.com/tcmetzger/pypresseportal
-
-```python
-from deutschland.presseportal import PresseportalApi
-
-presseportal = PresseportalApi("YOUR_KEY_HERE")
-
-stories = presseportal.get_stories()
-```
+Not available for now due to changes in the API.
 
 ## Auto-Generated API-Clients
 
